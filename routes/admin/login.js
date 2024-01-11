@@ -1,4 +1,4 @@
-const User = require("../../models/User");
+const Admin = require("../../models/Admin");
 const bcrypt = require("bcrypt");
 // bcrypt
 const jwt = require("jsonwebtoken");
@@ -8,27 +8,27 @@ module.exports = async (req, res) => {
   try {
     const SECRET_KEY = process.env.SECRET_KEY;
     let { email, password } = req.body;
-    let user = await User.findOne({ email });
-    if (!user) {
+    let admin = await Admin.findOne({ email });
+    if (!admin) {
       return res
         .status(401)
         .json({ status: false, error: "Wrong email or password" });
     }
-    const testPassword = await bcrypt.compare(password, user.password);
+    const testPassword = await bcrypt.compare(password, admin.password);
     if (!testPassword) {
       return res
         .status(401)
         .json({ status: false, error: "Wrong email or password" });
     }
-    let token = await jwt.sign({ id: user._id }, SECRET_KEY, {
+    let token = await jwt.sign({ id: admin._id }, SECRET_KEY, {
       expiresIn: "24h",
     });
     res.status(200).json({
       status: true,
       data: {
         token,
-        isUser: user.isUser,
-        isBanned: user.isBanned,
+        isAdmin: admin.isAdmin,
+        
       },
     });
   } catch (error) {

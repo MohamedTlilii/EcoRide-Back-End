@@ -21,9 +21,10 @@ mongoose
     console.log("can't coonect to database ❌");
   });
 // middlewares
-app.use(express.json());   
+app.use(express.json());
 //ihez data mel clinet ya3mlelha pass o isobha fel body
 app.use("/api/user", require("./routes/user"));
+app.use("/api/admin", require("./routes/admin"));
 
 // routes
 app.listen(PORT, (err) => {
