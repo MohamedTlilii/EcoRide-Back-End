@@ -1,10 +1,10 @@
-const User = require("../../models/Admin");
+const Admin = require("../../models/Admin");
 const bcrypt = require("bcrypt");
 module.exports = async (req, res) => {
   try {
     let { userName, email, password } = req.body;
-    let existedUser = await User.findOne({ email });
-    let existedUsername = await User.findOne({ userName });
+    let existedUser = await Admin.findOne({ email });
+    let existedUsername = await Admin.findOne({ userName });
     if (existedUser) {
       return res.status(401).json({
         status: true,
@@ -36,7 +36,7 @@ module.exports = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     //   bcrypt function
     const hashedPassword = await bcrypt.hash(password, salt);
-    const newUser = await new User({
+    const newUser = await new Admin({
       userName,
       email,
       password: hashedPassword,

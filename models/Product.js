@@ -5,7 +5,7 @@ const productSchema = new Schema(
   {
     adminId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref:"Admin",
+      ref:"admin",
     },
 
     image: {

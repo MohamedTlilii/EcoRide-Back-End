@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 const path = require("path");
+// import lel path mta3 el upload file
 
 require("dotenv").config();
 
@@ -20,11 +21,16 @@ mongoose
     console.log(err);
     console.log("can't coonect to database ❌");
   });
-// middlewares
+// Global middlewares
 app.use(express.json());
 //ihez data mel clinet ya3mlelha pass o isobha fel body
 app.use("/api/user", require("./routes/user"));
+// user routes
 app.use("/api/admin", require("./routes/admin"));
+// admin routes
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// path fille uplod bech isob fih
+
 
 // routes
 app.listen(PORT, (err) => {
