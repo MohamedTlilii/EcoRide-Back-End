@@ -10,19 +10,19 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({
-    storage: storage,
-    fileFilter: function (req, file, callback) {
-      if (
-        file.mimetype == "image/png" ||
-        file.mimetype == "image/jpg" ||
-        file.mimetype == "image/jpeg" ||
-        file.mimetype == "image/jfif"
-      ) {
-        callback(null, true);
-      } else {
-        callback(null, true);
-      }
-    },
-  });
-  
-  module.exports = upload;
+  storage: storage,
+  fileFilter: function (req, file, callback) {
+    if (
+      file.mimetype == "image/png" ||
+      file.mimetype == "image/jpg" ||
+      file.mimetype == "image/jpeg" ||
+      file.mimetype == "image/jfif"
+    ) {
+      callback(null, true);
+    } else {
+      callback(null, true);
+    }
+  },
+});
+
+module.exports = upload;

@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
   if (!verifiedToken) {
     return res.status(400).json({ status: false, error: "Expired session" });
   } else {
-    req.admin = { id: verifiedToken.id };
+    req.auth = { id: verifiedToken.id };
     return next();
   }
 };

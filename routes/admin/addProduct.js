@@ -1,19 +1,31 @@
 const Product = require("../../models/Product");
+const cloudinary = require("../../middlewares/cloudinary");
 
 module.exports = async (req, res) => {
   try {
-    const { title, price, description, rating } = req.body;
-    const { id } = req.admin;
-    let image = `${req.protocol}://${req.headers.host}/uploads/${req.file.filename}`;
-// el path eli tsajel fih el image
+    const { title, price, description, rating,images,image, } = req.body;
+    const { id } = req.auth;
+    const uploader = async (path) => await cloudinary.uploads(path, "uploads");
+    // el path eli tsajel fih el image
     
+    let urls = [];
+    for (let i = 0; i < req.files.length; i++) {
+      let result = await uploader(req.files[i].path);
+      urls.push(result.url);
+      fs.unlinkSync(req.files[i].path);
+    }
+    
+    
+    // let image = `${req.protocol}://${req.headers.host}/uploads/${req.file.filename}`;
+
     let newProduct = await new Product({
       title,
-      price,
+      price, 
       description,
       rating,
       adminId: id,
       image,
+      images: urls,
     });
     await newProduct.save();
     res
