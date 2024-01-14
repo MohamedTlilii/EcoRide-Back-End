@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema(
   {
-    adminId: {
+    productId: {
       type: mongoose.Schema.Types.ObjectId,
       ref:"admin",
     },

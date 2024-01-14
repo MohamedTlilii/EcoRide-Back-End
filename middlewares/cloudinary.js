@@ -13,7 +13,7 @@ exports.uploads = (file, folder) => {
         resource_type: "auto",
         folder: folder,
       })
-        .then((result) => {
+      .then((result) => {
         resolve({
           url: result.url,
           id: result.public_id,
