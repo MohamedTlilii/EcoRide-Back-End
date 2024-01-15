@@ -3,22 +3,22 @@ const route = express.Router();
 const verifiedToken = require("../../middlewares/verifyToken");
 const upload = require("../../middlewares/multer");
 
-route.post("/register", require("./register"));
 // register
+route.post("/register", require("./register"));
 
 
-route.post("/login", require("./login"));
 // login
+route.post("/login", require("./login"));
 
 
 
+// add product
 route.post(
   "/addProduct",
   verifiedToken,
   upload.array("photo",5),
   require("./addProduct")
 );
-// add product
 
 
 

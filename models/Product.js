@@ -3,14 +3,11 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema(
   {
-    productId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref:"admin",
-    },
+    // productId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref:"admin",
+    // },
 
-    image: {
-      type: String,
-    },
 
     title: {
       type: String,

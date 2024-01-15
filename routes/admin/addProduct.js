@@ -1,11 +1,12 @@
 const Product = require("../../models/Product");
 const cloudinary = require("../../middlewares/cloudinary");
-
+const fs = require("fs");
 module.exports = async (req, res) => {
   try {
     const { title, price, description, rating } = req.body;
     const { id } = req.auth;
     const uploader = async (path) => await cloudinary.uploads(path, "uploads");
+
     // el path eli tsajel fih el image
 
     let urls = [];
@@ -22,16 +23,14 @@ module.exports = async (req, res) => {
       price,
       description,
       rating,
-      productId: id,
-      image,
       images: urls,
     });
     await newProduct.save();
     res
       .status(201)
       .json({ status: true, message: "Product added successfully" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ status: false, error });
-  }
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ status: false, error: "Product won't be added" });
+    }
 };
