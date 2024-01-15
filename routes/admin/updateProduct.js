@@ -1,9 +1,9 @@
 const Product = require("../../models/Product");
 module.exports = async (req, res) => {
   try {
-    let { productId } = req.params;
+    let { id } = req.params;
     
-    await Product.findByIdAndUpdate(productId, {
+    await Product.findByIdAndUpdate(id, {
       $set: {
         ...req.body,
       },
