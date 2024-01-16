@@ -2,19 +2,19 @@ const Admin = require("../../models/Admin");
 const bcrypt = require("bcrypt");
 module.exports = async (req, res) => {
   try {
-    let { userName, email, password } = req.body;
-    let existedUser = await Admin.findOne({ email });
-    let existedUsername = await Admin.findOne({ userName });
-    if (existedUser) {
+    let { adminName, email, password } = req.body;
+    let existedAdmin = await Admin.findOne({ email });
+    let existedAdminName = await Admin.findOne({ adminName });
+    if (existedAdmin) {
       return res.status(401).json({
         status: true,
         message: "This email is already existed,please try another one",
       });
     }
-    if (existedUsername) {
+    if (existedAdminName) {
       return res.status(401).json({
         status: true,
-        message: "This username is already used,please try another one",
+        message: "This adminName is already used,please try another one",
       });
     }
     if (!password) {
@@ -36,12 +36,12 @@ module.exports = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     //   bcrypt function
     const hashedPassword = await bcrypt.hash(password, salt);
-    const newUser = await new Admin({
-      userName,
+    const newAdmin = await new Admin({
+      adminName,
       email,
       password: hashedPassword,
     });
-    await newUser.save();
+    await newAdmin.save();
     res
       .status(200)
       .json({ status: true, message: "Admin was created successfully" });

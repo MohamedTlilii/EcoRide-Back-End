@@ -3,11 +3,11 @@ const cloudinary = require("../../middlewares/cloudinary");
 const fs = require("fs");
 module.exports = async (req, res) => {
   try {
-    const { title, price, description, rating } = req.body;
+    const { title, price, description} = req.body;
     const { id } = req.auth;
-    const uploader = async (path) => await cloudinary.uploads(path, "uploads");
+    const uploader = async (path) => await cloudinary.uploads(path, "products");
 
-    // el path eli tsajel fih el image
+   
 
     let urls = [];
     for (let i = 0; i < req.files.length; i++) {
@@ -16,21 +16,21 @@ module.exports = async (req, res) => {
       fs.unlinkSync(req.files[i].path);
     }
 
-    // let image = `${req.protocol}://${req.headers.host}/uploads/${req.file.filename}`;
+   
 
     let newProduct = await new Product({
       title,
       price,
       description,
-      rating,
+     
       images: urls,
     });
     await newProduct.save();
     res
       .status(201)
       .json({ status: true, message: "Product added successfully" });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ status: false, error: "Product won't be added" });
-    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: false, error: "Product won't be added" });
+  }
 };

@@ -1,12 +1,18 @@
 const User = require("../../models/User");
+
 module.exports = async (req, res) => {
   try {
-    let { id } = req.auth;
-    await User.findByIdAndDelete(id);
-    await User.deleteMany({userId: id})
+    let { userId } = req.params ;
+
+    await User.findByIdAndUpdate(userId, {
+      $set: {
+        isBanned: true,
+      },
+    });
+
     res
       .status(200)
-      .json({ status: true, message: "User was deleted successfully" });
+      .json({ status: true, message: "User was banned successfully" });
   } catch (error) {
     if (error) {
       console.log(error);

@@ -1,4 +1,4 @@
-const User = require("../../models/User");
+const Admin = require("../../models/Admin");
 const cloudinary = require("../../middlewares/cloudinary");
 const fs = require("fs");
 // const { URL } = require("url");
@@ -11,14 +11,14 @@ module.exports = async (req, res) => {
     let { path } = req.file;
     const { url } = await uploader(path);
     fs.unlinkSync(path);
-    await User.findByIdAndUpdate(id, {
+    await Admin.findByIdAndUpdate(id, {
       $set: {
         imageUrl:url,
       },
     });
     res
       .status(200)
-      .json({ status: true, message: "User photo was updated successfully" });
+      .json({ status: true, message: "Admin photo was updated successfully" });
   } catch (error) {
     if (error) {
       console.log(error);
@@ -26,4 +26,3 @@ module.exports = async (req, res) => {
     res.status(401).json({ status: false, error });
   }
 };
-

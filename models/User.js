@@ -3,6 +3,25 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
+
+    firstName : {
+      type: String,
+    },
+    lastName : {
+      type: String,
+    },
+    address : {
+      type: String,
+    },
+    city : {
+      type: String,
+    },
+    number : {
+      type: String,
+    },
+
+
+
     userName: {
       type: String,
       required: [true, "Username is required field"],

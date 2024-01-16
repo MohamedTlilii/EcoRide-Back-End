@@ -20,10 +20,10 @@ const productSchema = new Schema(
       type: String,
       required: [true, "Description  is required field"],
     },
-    rating: {
-      type: String,
-      required: [true, "Rating  is required field"],
-    },
+    // rating: {
+    //   type: String,
+    //   required: [true, "Rating  is required field"],
+    // },
     images: {
       type: [String],
     },

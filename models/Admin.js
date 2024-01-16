@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const adminSchema = new Schema(
   {
-    userName: {
+    adminName: {
       type: String,
       required: [true, "Username is required field"],
     },

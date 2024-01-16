@@ -6,55 +6,63 @@ const upload = require("../../middlewares/multer");
 // register
 route.post("/register", require("./register"));
 
-
 // login
 route.post("/login", require("./login"));
-
-
 
 // add product
 route.post(
   "/addProduct",
   verifiedToken,
-  upload.array("photo",5),
+  upload.array("photo", 5),
   require("./addProduct")
 );
 
-
-
-
-
+// get products
 route.get(
   "/getProducts",
   verifiedToken,
   upload.single("photo"),
   require("./getProducts")
 );
-// get products
 
-
-
+// update product
 route.put(
-  "/updateProduct/:productId",
+  "/updateProduct/:id",
   verifiedToken,
+  upload.array("photos", 5),
   require("./updateProduct")
 );
-// update product
 
-
-
-
+// delete product
 route.delete(
   "/deleteProduct/:productId",
   verifiedToken,
   require("./deleteProduct")
 );
-// delete product
 
 
 
+// get users
+route.get("/getUsers", verifiedToken, require("./getUsers"));
 
-route.delete("/deleteAccount", verifiedToken, require("./deleteAccount"));
-// delete account
+
+
+// ban user
+route.put("/banUser/:userId", verifiedToken, require("./banUser"));
+
+
+
+// unban user
+route.put("/unbanUser/:userId", verifiedToken, require("./unbanUser"));
+
+
+// update admin photo
+route.put(
+  "/updateAdminPhoto",
+  verifiedToken,
+  upload.single("photo"), 
+  require("./updateAdminPhoto")
+);
+
 
 module.exports = route;
