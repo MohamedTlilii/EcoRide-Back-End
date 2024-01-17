@@ -1,9 +1,9 @@
 const Review = require("../../models/Review");
 module.exports = async (req, res) => {
   try {
-    let { id } = req.auth;
+    let { productId } = req.params;
     
-    await Review.findByIdAndUpdate(id, {
+    await Review.findByIdAndUpdate(productId, {
       $set: {
         ...req.body,
       },

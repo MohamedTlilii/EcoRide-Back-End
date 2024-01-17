@@ -41,6 +41,6 @@ route.post("/addReview/:productId", verifiedToken, require("./addReview"));
 route.get("/getReviews/:productId", verifiedToken, require("./getReviews"));
 
 // update Review
-route.put("/updateReview", verifiedToken, require("./updateReview"));
+route.put("/updateReview/:productId", verifiedToken, require("./updateReview"));
 
 module.exports = route;
