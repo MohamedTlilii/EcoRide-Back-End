@@ -24,6 +24,8 @@ route.get(
   upload.single("photo"),
   require("./getProducts")
 );
+// get single product
+route.get("/getSingleProduct/:id", verifiedToken, require ("./getSingleProduct"))
 
 // update product
 route.put(
@@ -63,6 +65,10 @@ route.put(
   upload.single("photo"), 
   require("./updateAdminPhoto")
 );
+
+
+// update information
+route.put("/updateInformation",verifiedToken,require("./updateInformation"))
 
 
 module.exports = route;
