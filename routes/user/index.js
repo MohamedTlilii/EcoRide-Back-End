@@ -43,4 +43,19 @@ route.get("/getReviews/:productId", verifiedToken, require("./getReviews"));
 // update Review
 route.put("/updateReview/:productId", verifiedToken, require("./updateReview"));
 
+// delete Review
+route.delete(
+  "/deleteReview/:productId",
+  verifiedToken,
+  require("./deleteReview")
+);
+
+//  get Own Order
+route.get("/getOwnOrder/:userId", verifiedToken, require("./getOwnOrder"));
+
+
+//  send Order
+route.post("/sendOrder/:userId", verifiedToken, require("./sendOrder"));
+
+
 module.exports = route;

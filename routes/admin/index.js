@@ -70,5 +70,11 @@ route.put(
 // update information
 route.put("/updateInformation",verifiedToken,require("./updateInformation"))
 
+// delete Review
+route.delete(
+  "/deleteReview/:productId",
+  verifiedToken,
+  require("./deleteReview")
+);
 
 module.exports = route;
