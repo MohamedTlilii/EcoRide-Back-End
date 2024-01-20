@@ -55,7 +55,5 @@ route.get("/getOwnOrder/:userId", verifiedToken, require("./getOwnOrder"));
 
 
 //  send Order
-route.post("/sendOrder/:userId", verifiedToken, require("./sendOrder"));
-
-
+route.post('/sendOrder/:userId', verifiedToken, upload.array('photo', 5), require('./sendOrder'));
 module.exports = route;
