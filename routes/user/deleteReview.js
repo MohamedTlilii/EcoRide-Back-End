@@ -1,8 +1,8 @@
 const Review = require("../../models/Review");
 module.exports = async (req, res) => {
   try {
-    let { productId } = req.params;
-    await Review.findByIdAndDelete(productId);
+    let { reviewId } = req.params;
+    await Review.findByIdAndDelete(reviewId);
     res
       .status(200)
       .json({ status: true, message: "User Review was deleted successfully" });

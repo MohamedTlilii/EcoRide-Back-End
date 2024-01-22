@@ -7,8 +7,6 @@ module.exports = async (req, res) => {
     const { id } = req.auth;
     const uploader = async (path) => await cloudinary.uploads(path, "products");
 
-   
-
     let urls = [];
     for (let i = 0; i < req.files.length; i++) {
       let result = await uploader(req.files[i].path);
@@ -22,7 +20,6 @@ module.exports = async (req, res) => {
       title,
       price,
       description,
-     
       images: urls,
     });
     await newProduct.save();

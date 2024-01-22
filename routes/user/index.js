@@ -20,7 +20,6 @@ route.put(
 route.get(
   "/getProducts",
   verifiedToken,
-  upload.array("photo", 5),
   require("./getProducts")
 );
 
@@ -37,23 +36,54 @@ route.get(
 // add Review
 route.post("/addReview/:productId", verifiedToken, require("./addReview"));
 
-//  get Review
+//  get Reviews
 route.get("/getReviews/:productId", verifiedToken, require("./getReviews"));
 
 // update Review
-route.put("/updateReview/:productId", verifiedToken, require("./updateReview"));
+route.put("/updateReview/:reviewId", verifiedToken, require("./updateReview"));
 
 // delete Review
 route.delete(
-  "/deleteReview/:productId",
+  "/deleteReview/:reviewId",
   verifiedToken,
   require("./deleteReview")
 );
 
 //  get Own Order
-route.get("/getOwnOrder/:userId", verifiedToken, require("./getOwnOrder"));
+route.get("/getOwnOrder", verifiedToken, require("./getOwnOrder"));
 
+//  create Order
+route.post("/createOrder", verifiedToken, require("./createOrder"));
 
-//  send Order
-route.post('/sendOrder/:userId', verifiedToken, upload.array('photo', 5), require('./sendOrder'));
+// addProductToCart
+route.post(
+  "/addProductToCart/:productId",
+  verifiedToken,
+  require("./addProductToCart")
+);
+
+//  get Own Cart
+route.get("/getOwnCart", verifiedToken, require("./getOwnCart"));
+
+// update product quantity from cart
+route.put(
+  "/incProductQuantityFromCart/:productId",
+  verifiedToken,
+  require("./incProductQuantityFromCart")
+);
+
+// update product quantity from cart
+route.put(
+  "/decProductQuantityFromCart/:productId",
+  verifiedToken,
+  require("./decProductQuantityFromCart")
+);
+
+// delete product from cart
+route.delete(
+  "/removeProductFromCart/:productId",
+  verifiedToken,
+  require("./removeProductFromCart")
+);
+
 module.exports = route;

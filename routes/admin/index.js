@@ -18,14 +18,14 @@ route.post(
 );
 
 // get products
-route.get(
-  "/getProducts",
-  verifiedToken,
-  upload.single("photo"),
-  require("./getProducts")
-);
+route.get("/getProducts", verifiedToken, require("./getProducts"));
+
 // get single product
-route.get("/getSingleProduct/:id", verifiedToken, require ("./getSingleProduct"))
+route.get(
+  "/getSingleProduct/:id",
+  verifiedToken,
+  require("./getSingleProduct")
+);
 
 // update product
 route.put(
@@ -42,39 +42,49 @@ route.delete(
   require("./deleteProduct")
 );
 
-
-
 // get users
 route.get("/getUsers", verifiedToken, require("./getUsers"));
-
-
 
 // ban user
 route.put("/banUser/:userId", verifiedToken, require("./banUser"));
 
-
-
 // unban user
 route.put("/unbanUser/:userId", verifiedToken, require("./unbanUser"));
-
 
 // update admin photo
 route.put(
   "/updateAdminPhoto",
   verifiedToken,
-  upload.single("photo"), 
+  upload.single("photo"),
   require("./updateAdminPhoto")
 );
 
-
 // update information
-route.put("/updateInformation",verifiedToken,require("./updateInformation"))
+route.put("/updateInformation", verifiedToken, require("./updateInformation"));
+
+// get product reviews
+route.get(
+  "/getProductReviews/:productId",
+  verifiedToken,
+  require("./getProductReviews")
+);
 
 // delete Review
 route.delete(
-  "/deleteReview/:productId",
+  "/deleteReview/:reviewId",
   verifiedToken,
   require("./deleteReview")
 );
+
+// new routes
+
+// get orders
+route.get("/getOrders", verifiedToken, require("./getOrders"));
+
+// confirm order
+route.put("/confirmOrder/:orderId", verifiedToken, require("./confirmOdrer"));
+
+// deliver order
+route.put("/deliverOrder/:orderId", verifiedToken, require("./deliverOrder"));
 
 module.exports = route;

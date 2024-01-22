@@ -2,7 +2,6 @@ const User = require("../../models/User");
 module.exports = async (req, res) => {
   try {
     let { id } = req.auth;
-    
     await User.findByIdAndUpdate(id, {
       $set: {
         ...req.body,

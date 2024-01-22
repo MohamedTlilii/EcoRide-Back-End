@@ -12,9 +12,7 @@ module.exports = async (req, res) => {
       productId,
     });
     await newReview.save();
-    res
-      .status(200)
-      .json({ status: true, data: newReview });
+    res.status(200).json({ status: true, data: "Review added successfully" });
   } catch (error) {
     if (error) {
       console.log(error);

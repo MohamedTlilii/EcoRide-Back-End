@@ -1,16 +1,16 @@
-const Review = require("../../models/Review");
+const Order = require("../../models/Order");
 module.exports = async (req, res) => {
   try {
-    let { reviewId } = req.params;
+    let { orderId } = req.params;
 
-    await Review.findByIdAndUpdate(reviewId, {
+    await Order.findByIdAndUpdate(orderId, {
       $set: {
-        ...req.body,
+        isDelivered: true,
       },
     });
     res
       .status(200)
-      .json({ status: true, message: "User Review was updated successfully" });
+      .json({ status: true, message: "order was confirmed successfully" });
   } catch (error) {
     if (error) {
       console.log(error);

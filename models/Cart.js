@@ -1,7 +1,8 @@
+// models/Cart.js
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const reviewSchema = new Schema(
+const cartSchema = new Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -11,9 +12,8 @@ const reviewSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "products",
     },
-
-    yourReview: {
-      type: String,
+    quantity: {
+      type: Number,
     },
   },
   {
@@ -21,4 +21,4 @@ const reviewSchema = new Schema(
   }
 );
 
-module.exports = Review = mongoose.model("reviews", reviewSchema);
+module.exports = Cart = mongoose.model("carts", cartSchema);

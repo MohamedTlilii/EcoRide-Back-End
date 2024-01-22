@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     let { productId } = req.params;
     let reviews = await Review.find({ productId }).populate(
       "userId",
-      "userName"
+      "userName imageUrl"
     );
     // populate tjib el users eli amll el review o el product eli tamal alih el review o just njibo m3ah username o el id mta3el user
     res.status(200).json({ status: true, data: reviews });

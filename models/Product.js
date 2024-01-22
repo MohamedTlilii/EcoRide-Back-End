@@ -8,7 +8,6 @@ const productSchema = new Schema(
     //   ref:"admin",
     // },
 
-
     title: {
       type: String,
       required: [true, "title is required field"],

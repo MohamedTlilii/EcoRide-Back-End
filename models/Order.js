@@ -1,5 +1,5 @@
 // models/Order.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema(
@@ -8,7 +8,7 @@ const orderSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "users",
     },
-    totall: {
+    total: {
       type: Number,
     },
     cart: {
@@ -16,6 +16,7 @@ const orderSchema = new Schema(
     },
     isConfirmed: {
       type: Boolean,
+      default: false,
     },
     isDelevered: {
       type: Boolean,
@@ -27,4 +28,4 @@ const orderSchema = new Schema(
   }
 );
 
-module.exports = Order = mongoose.model('orders', orderSchema);
+module.exports = Order = mongoose.model("orders", orderSchema);
