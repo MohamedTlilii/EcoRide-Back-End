@@ -5,12 +5,12 @@ module.exports = async (req, res) => {
 
     await Order.findByIdAndUpdate(orderId, {
       $set: {
-        isDelivered: true,
+        isDelevered: true,
       },
     });
     res
       .status(200)
-      .json({ status: true, message: "order was confirmed successfully" });
+      .json({ status: true, message: "order was delivered successfully" });
   } catch (error) {
     if (error) {
       console.log(error);
