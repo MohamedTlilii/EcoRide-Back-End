@@ -16,15 +16,11 @@ route.put(
   require("./updatePhoto")
 );
 
-// get products
-route.get(
-  "/getProducts",
-  verifiedToken,
-  require("./getProducts")
-);
-
 // update information
 route.put("/updateInformation", verifiedToken, require("./updateInformation"));
+
+// get products
+route.get("/getProducts", verifiedToken, require("./getProducts"));
 
 // get single product
 route.get(

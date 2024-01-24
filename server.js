@@ -40,4 +40,5 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.listen(PORT, (err) => {
   if (err) throw err;
   console.log(`server is up and runing on port :${PORT}`);
+
 });

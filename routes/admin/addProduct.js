@@ -3,7 +3,7 @@ const cloudinary = require("../../middlewares/cloudinary");
 const fs = require("fs");
 module.exports = async (req, res) => {
   try {
-    const { title, price, description} = req.body;
+    const { title, price, description } = req.body;
     const { id } = req.auth;
     const uploader = async (path) => await cloudinary.uploads(path, "products");
 
@@ -13,8 +13,6 @@ module.exports = async (req, res) => {
       urls.push(result.url);
       fs.unlinkSync(req.files[i].path);
     }
-
-   
 
     let newProduct = await new Product({
       title,
