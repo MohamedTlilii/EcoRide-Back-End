@@ -15,7 +15,7 @@ const productSchema = new Schema(
       required: [true, "Description  is required field"],
     },
 
-    images: {
+    imageUrls: {
       type: [String],
     },
   },

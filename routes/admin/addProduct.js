@@ -4,7 +4,6 @@ const fs = require("fs");
 module.exports = async (req, res) => {
   try {
     const { title, price, description } = req.body;
-    const { id } = req.auth;
     const uploader = async (path) => await cloudinary.uploads(path, "products");
 
     let urls = [];
@@ -18,9 +17,8 @@ module.exports = async (req, res) => {
       title,
       price,
       description,
-      images: urls,
+      imageUrls: urls,
     });
-    console.log(newProduct, "aaaaaaaaa");
     await newProduct.save();
     res
       .status(201)
