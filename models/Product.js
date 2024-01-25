@@ -8,7 +8,7 @@ const productSchema = new Schema(
       required: [true, "title is required field"],
     },
     price: {
-      type: String,
+      type: Number,
     },
     description: {
       type: String,
