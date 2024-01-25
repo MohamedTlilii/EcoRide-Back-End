@@ -4,6 +4,7 @@ module.exports = async (req, res) => {
   try {
     let { adminName, email, password } = req.body;
     let existedAdmin = await Admin.findOne({ email });
+    console.log(existedAdmin)
     let existedAdminName = await Admin.findOne({ adminName });
     if (existedAdmin) {
       return res.status(401).json({

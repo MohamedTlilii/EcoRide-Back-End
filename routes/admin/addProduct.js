@@ -20,6 +20,7 @@ module.exports = async (req, res) => {
       description,
       images: urls,
     });
+    console.log(newProduct, "aaaaaaaaa");
     await newProduct.save();
     res
       .status(201)
