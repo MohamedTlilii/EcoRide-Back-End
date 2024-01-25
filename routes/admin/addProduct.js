@@ -7,7 +7,6 @@ module.exports = async (req, res) => {
     const uploader = async (path) => await cloudinary.uploads(path, "products");
 
     let urls = [];
-    console.log(req.files)
     for (let i = 0; i < req.files.length; i++) {
       let result = await uploader(req.files[i].path);
       urls.push(result.url);
