@@ -2,7 +2,7 @@ const User = require("../../models/User");
 module.exports = async (req, res) => {
   try {
     let { id } = req.auth;
-    let user = await User.findById(id).populate("userName,email,imageUrl");
+    let user = await User.findById(id).populate("userName","email","imageUrl");
     res.status(200).json({ status: true, data: user });
   } catch (error) {
     if (error) {
