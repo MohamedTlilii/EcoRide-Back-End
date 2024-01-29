@@ -27,7 +27,7 @@ route.put("/updateInformation", verifiedToken, require("./updateInformation"));
 route.get("/getProducts", verifiedToken, require("./getProducts"));
 
 // get products
-route.get("/getProducts", verifiedToken, require("./getProducts"));
+route.get("/getProducts", require("./getProducts"));
 
 // get single product
 route.get(
