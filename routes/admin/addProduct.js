@@ -3,9 +3,9 @@ const cloudinary = require("../../middlewares/cloudinary");
 const fs = require("fs");
 module.exports = async (req, res) => {
   try {
-    const { title, price, description,category } = req.body;
+    const { title, price, description, category } = req.body;
     const uploader = async (path) => await cloudinary.uploads(path, "products");
-
+    // clgggg
     let urls = [];
     for (let i = 0; i < req.files.length; i++) {
       let result = await uploader(req.files[i].path);
