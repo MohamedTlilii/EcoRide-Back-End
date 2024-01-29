@@ -18,6 +18,9 @@ const productSchema = new Schema(
     imageUrls: {
       type: [String],
     },
+    category: {
+      type: String,
+    },
   },
   {
     timestamps: true,
