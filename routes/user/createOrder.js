@@ -14,8 +14,9 @@ module.exports = async (req, res) => {
       userId: id,
       cart,
     });
-
     await newOrder.save();
+    await Cart.deleteMany({ userId: id });
+
     res.status(200).json({ status: true, message: "Order added successfully" });
   } catch (error) {
     res.status(401).json({ status: false, error });
