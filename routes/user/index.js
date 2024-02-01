@@ -85,4 +85,7 @@ route.delete(
   require("./removeProductFromCart")
 );
 
+// delete cart
+route.delete("/deleteCart", verifiedToken, require("./restartCart"));
+
 module.exports = route;
