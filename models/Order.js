@@ -12,7 +12,18 @@ const orderSchema = new Schema(
       type: Number,
     },
     cart: {
-      type: [],
+      type: [
+        {
+          createdAt: String,
+          productId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "products",
+          },
+          quantity: Number,
+          updatedAt: String,
+          userId: mongoose.Schema.Types.ObjectId,
+        },
+      ],
     },
     isConfirmed: {
       type: Boolean,
