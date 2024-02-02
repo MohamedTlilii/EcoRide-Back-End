@@ -14,18 +14,67 @@ module.exports = async (req, res) => {
     } = req.body;
     let existedUser = await User.findOne({ email });
     let existedUsername = await User.findOne({ userName });
+    // let existedFirstName = await { userName };
+    // let existedLastName = await { lastName };
+    // let existedAddress = await { address };
+    // let existedCity = await { city };
+    // let existedNumber = await { number };
+    
     if (existedUser) {
       return res.status(401).json({
         status: true,
-        message: "This email is already existed,please try another one",
+        message: "This Email is already existed,please try another one",
       });
     }
     if (existedUsername) {
       return res.status(401).json({
         status: true,
-        message: "This username is already used,please try another one",
+        message: "This Username is already used,please try another one",
       });
     }
+
+
+
+
+    // if (existedFirstName) {
+    //   return res.status(401).json({
+    //     status: true,
+    //     message: "This Firstname is already used,please try another one",
+    //   });
+    // }
+    // if (existedLastName) {
+    //   return res.status(401).json({
+    //     status: true,
+    //     message: "This LastName is already used,please try another one",
+    //   });
+    // }
+    // if (existedAddress) {
+    //   return res.status(401).json({
+    //     status: true,
+    //     message: "This Firstname is already used,please try another one",
+    //   });
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     if (!password) {
       return res.status(401).json({
         status: false,
