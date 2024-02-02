@@ -3,24 +3,21 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-
-    firstName : {
+    firstName: {
       type: String,
     },
-    lastName : {
+    lastName: {
       type: String,
     },
-    address : {
+    address: {
       type: String,
     },
-    city : {
+    city: {
       type: String,
     },
-    number : {
+    number: {
       type: String,
     },
-
-
 
     userName: {
       type: String,
@@ -40,7 +37,7 @@ const userSchema = new Schema(
     imageUrl: {
       type: String,
       default:
-        "https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png",
+        "https://static.vecteezy.com/ti/vecteur-libre/p3/12911441-icone-de-profil-d-avatar-par-defaut-dans-le-style-de-ligne-vectoriel.jpg",
     },
     isUser: {
       type: Boolean,
