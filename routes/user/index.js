@@ -26,11 +26,7 @@ route.put("/updateInformation", verifiedToken, require("./updateInformation"));
 route.get("/getProducts", require("./getProducts"));
 
 // get single product
-route.get(
-  "/getSingleProduct/:id",
-  verifiedToken,
-  require("./getSingleProduct")
-);
+route.get("/getSingleProduct/:id", require("./getSingleProduct"));
 
 // add Review
 route.post("/addReview/:productId", verifiedToken, require("./addReview"));

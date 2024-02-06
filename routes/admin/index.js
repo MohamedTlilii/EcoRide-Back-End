@@ -21,11 +21,7 @@ route.post(
 route.get("/getProducts", require("./getProducts"));
 
 // get single product
-route.get(
-  "/getSingleProduct/:id",
-  verifiedToken,
-  require("./getSingleProduct")
-);
+route.get("/getSingleProduct/:id", require("./getSingleProduct"));
 
 // update product
 route.put(
