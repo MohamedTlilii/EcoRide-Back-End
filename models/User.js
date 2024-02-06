@@ -5,7 +5,7 @@ const userSchema = new Schema(
   {
     firstName: {
       type: String,
-      required: [true, "firstName is required field"],
+      required: [true, " Please enter your firstName 🥴"],
     },
     lastName: {
       type: String,
