@@ -2,9 +2,18 @@ const Admin = require("../../models/Admin");
 const bcrypt = require("bcrypt");
 module.exports = async (req, res) => {
   try {
-    let { adminName, email, password } = req.body;
+    let {
+      firstName,
+      lastName,
+      address,
+      city,
+      number,
+      adminName,
+      email,
+      password,
+    } = req.body;
     let existedAdmin = await Admin.findOne({ email });
-    console.log(existedAdmin)
+    // console.log(existedAdmin);
     let existedAdminName = await Admin.findOne({ adminName });
     if (existedAdmin) {
       return res.status(401).json({
@@ -38,7 +47,12 @@ module.exports = async (req, res) => {
     //   bcrypt function
     const hashedPassword = await bcrypt.hash(password, salt);
     const newAdmin = await new Admin({
-      adminName,
+      firstName,
+      lastName,
+      address,
+      city,
+      number,
+      userName,
       email,
       password: hashedPassword,
     });
