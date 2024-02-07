@@ -4,7 +4,7 @@ const verifiedToken = require("../../middlewares/verifyToken");
 const upload = require("../../middlewares/multer");
 
 // register
-route.post("/register", require("./register"));
+// route.post("/register", require("./register"));
 
 // login
 // route.post("/login", require("./login"));
