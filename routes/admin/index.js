@@ -7,7 +7,7 @@ const upload = require("../../middlewares/multer");
 // route.post("/register", require("./register"));
 
 // login
-route.post("/login", require("./login"));
+// route.post("/login", require("./login"));
 
 // add product
 route.post(
