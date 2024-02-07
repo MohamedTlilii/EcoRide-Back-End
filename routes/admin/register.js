@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
       address,
       city,
       number,
-      adminName,
+      userName,
       email,
       password,
     } = req.body;

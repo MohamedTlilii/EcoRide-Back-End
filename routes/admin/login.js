@@ -28,7 +28,6 @@ module.exports = async (req, res) => {
       data: {
         token,
         isAdmin: admin.isAdmin,
-        
       },
     });
   } catch (error) {
