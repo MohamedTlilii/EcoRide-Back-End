@@ -8,23 +8,23 @@ module.exports = async (req, res) => {
       address,
       city,
       number,
-      adminName,
+      userName,
       email,
       password,
     } = req.body;
     let existedAdmin = await Admin.findOne({ email });
     // console.log(existedAdmin);
-    let existedAdminName = await Admin.findOne({ adminName });
+    let existeduserName = await Admin.findOne({ userName });
     if (existedAdmin) {
       return res.status(401).json({
         status: true,
         message: "This email is already existed,please try another one",
       });
     }
-    if (existedAdminName) {
+    if (existeduserName) {
       return res.status(401).json({
         status: true,
-        message: "This adminName is already used,please try another one",
+        message: "This AdminName is already used,please try another one",
       });
     }
     if (!password) {
