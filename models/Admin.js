@@ -3,16 +3,37 @@ const Schema = mongoose.Schema;
 
 const adminSchema = new Schema(
   {
-    adminName: {
+    firstName: {
       type: String,
-      required: [true, "Username is required field"],
+      required: [true, " Please enter your firstName 🥴"],
+    },
+    lastName: {
+      type: String,
+      required: [true, "Please enter your lastName 🥴 "],
+    },
+    address: {
+      type: String,
+      required: [true, "Please enter your address 📢 "],
+    },
+    city: {
+      type: String,
+      required: [true, "Please enter your city 🏙️"],
+    },
+    number: {
+      type: String,
+      required: [true, "Please enter your number 📱 "],
+    },
+
+    userName: {
+      type: String,
+      required: [true, "Please enter your Username 🥴 "],
     },
     password: {
       type: String,
     },
     email: {
       type: String,
-      required: [true, "Email is required field"],
+      required: [true, "Please enter your Email ✉️"],
       match: [
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
         "This is invalid email",
