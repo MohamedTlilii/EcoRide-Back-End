@@ -24,7 +24,7 @@ const adminSchema = new Schema(
       required: [true, "Please enter your number 📱 "],
     },
 
-    userName: {
+    adminName: {
       type: String,
       required: [true, "Please enter your Username 🥴 "],
     },
