@@ -32,7 +32,7 @@ route.get("/getSingleProduct/:id", require("./getSingleProduct"));
 route.post("/addReview/:productId", verifiedToken, require("./addReview"));
 
 //  get Reviews
-route.get("/getReviews/:productId", verifiedToken, require("./getReviews"));
+route.get("/getReviews/:productId", require("./getReviews"));
 
 // update Review
 route.put("/updateReview/:reviewId", verifiedToken, require("./updateReview"));
