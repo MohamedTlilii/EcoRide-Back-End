@@ -1,9 +1,9 @@
-const Admin = require("../../models/Admin");
+const User = require("../../models/User");
 module.exports = async (req, res) => {
   try {
     let { id } = req.auth;
     
-    await Admin.findByIdAndUpdate(id, {
+    await User.findByIdAndUpdate(id, {
       $set: {
         ...req.body,
       },
