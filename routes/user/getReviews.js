@@ -1,7 +1,6 @@
 const Review = require("../../models/Review");
 module.exports = async (req, res) => {
   try {
-    let { id } = req.auth;
     let { productId } = req.params;
     let reviews = await Review.find({ productId }).populate(
       "userId",

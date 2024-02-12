@@ -31,7 +31,7 @@ route.get("/getSingleProduct/:id", require("./getSingleProduct"));
 // add Review
 route.post("/addReview/:productId", verifiedToken, require("./addReview"));
 
-//  get Reviews
+//  get Product reviews
 route.get("/getReviews/:productId", require("./getReviews"));
 
 // update Review
