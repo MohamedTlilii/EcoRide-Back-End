@@ -1,7 +1,7 @@
 const User = require("../../models/User");
 const cloudinary = require("../../middlewares/cloudinary");
 const fs = require("fs");
-// const { URL } = require("url");
+// const { URL } = require("url")e;
 module.exports = async (req, res) => {
   try {
     let { id } = req.auth;
