@@ -1,4 +1,4 @@
-const Admin = require("../../models/Admin");
+const User = require("../../models/User");
 const cloudinary = require("../../middlewares/cloudinary");
 const fs = require("fs");
 // const { URL } = require("url");
@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     let { path } = req.file;
     const { url } = await uploader(path);
     fs.unlinkSync(path);
-    await Admin.findByIdAndUpdate(id, {
+    await User.findByIdAndUpdate(id, {
       $set: {
         imageUrl:url,
       },
