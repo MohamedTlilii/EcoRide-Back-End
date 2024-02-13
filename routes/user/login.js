@@ -30,6 +30,7 @@ module.exports = async (req, res) => {
         isUser: user.isUser,
         isAdmin: user.isAdmin,
         isBanned: user.isBanned,
+        id: user._id,
       },
     });
   } catch (error) {
