@@ -34,11 +34,10 @@ app.use("/api/user", require("./routes/user"));
 app.use("/api/admin", require("./routes/admin"));
 // admin routes
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-// path fille uplod bech isob fih
+// path fille uplod bech isob fi
 
 // listen to requests
 app.listen(PORT, (err) => {
   if (err) throw err;
   console.log(`server is up and runing on port :${PORT}`);
-
 });
