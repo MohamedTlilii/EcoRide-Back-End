@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
       console.log(urls);
       await Product.findByIdAndUpdate(id, {
         $set: {
-          imageUrls: urls,
+          images: urls,
           ...req.body,
         },
       });
