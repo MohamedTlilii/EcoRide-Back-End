@@ -13,10 +13,10 @@ module.exports = async (req, res) => {
         urls.push(result.url);
         fs.unlinkSync(req.files[i].path);
       }
-      console.log(urls);
+      // console.log(urls)
       await Product.findByIdAndUpdate(id, {
         $set: {
-          images: urls,
+          imageUrls: urls,
           ...req.body,
         },
       });
