@@ -26,6 +26,6 @@ module.exports = async (req, res) => {
       .json({ status: true, message: "Product added successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ status: false, error: "Product won't be added" });
+    res.status(500).json({ status: false, error: error });
   }
 };
