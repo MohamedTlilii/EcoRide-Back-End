@@ -4,7 +4,8 @@ const fs = require("fs");
 module.exports = async (req, res) => {
   try {
     let { id } = req.params;
-    if (req.files) {
+
+    if (req.files.length > 0) {
       const uploader = async (path) =>
         await cloudinary.uploads(path, "products");
       let urls = [];
@@ -33,6 +34,9 @@ module.exports = async (req, res) => {
         .status(200)
         .json({ status: true, message: "product was updated successfully" });
     }
+    // res
+    //   .status(200)
+    //   .json({ status: true, message: "product was updated successfully" });
   } catch (error) {
     if (error) {
       console.log(error);
