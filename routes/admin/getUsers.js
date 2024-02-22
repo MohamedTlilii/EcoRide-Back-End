@@ -3,7 +3,8 @@ module.exports = async (req, res) => {
   try {
     let { id } = req.auth;
     let users = await User.find({ _id: { $nin: [id] } }).select(
-      "-password -email"
+      "-password "
+      // -email
     );
     res.status(200).json({ status: true, data: users });
   } catch (error) {
