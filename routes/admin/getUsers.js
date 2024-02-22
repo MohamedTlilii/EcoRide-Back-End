@@ -2,7 +2,7 @@ const User = require("../../models/User");
 module.exports = async (req, res) => {
   try {
     let { id } = req.auth;
-    let users = await User.find({ _id: { $nin: [id] } }).populate(
+    let users = await User.find({ _id: { $nin: [id] } }).select(
       "-password "
       // -email
     );
